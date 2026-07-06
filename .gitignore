@@ -1,0 +1,20 @@
+# Backend artifacts
+backend/.venv/
+backend/.pytest_cache/
+backend/notifications.log
+backend/__pycache__/
+backend/*.pyc
+backend/*.pyo
+backend/*.pyd
+backend/.env
+
+# Frontend artifacts
+frontend/node_modules/
+frontend/dist/
+frontend/.cache/
+frontend/*.log
+
+# Editor files
+.vscode/
+.idea/
+.DS_Store
