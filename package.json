@@ -1,0 +1,7 @@
+{
+  "name": "haircraft-monorepo",
+  "private": true,
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build"
+  }
+}
