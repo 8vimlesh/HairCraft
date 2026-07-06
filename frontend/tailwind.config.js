@@ -8,24 +8,25 @@ export default {
     extend: {
       colors: {
         gold: {
-          light: '#f5e4b7',
-          DEFAULT: '#d4af37',
+          light: '#f8eed1',
+          DEFAULT: '#c59b27',
           dark: '#9a7a1c',
-          glow: 'rgba(212, 175, 55, 0.15)',
+          glow: 'rgba(197, 155, 39, 0.15)',
         },
-        charcoal: {
-          light: '#2d2d2d',
-          DEFAULT: '#1c1c1c',
-          dark: '#0f0f0f',
-          deep: '#0a0a0a',
+        cream: {
+          light: '#ffffff',
+          DEFAULT: '#fdfbf7',
+          dark: '#f5f0e6',
+          deep: '#eae3d5',
         }
       },
       fontFamily: {
         sans: ['Outfit', 'Inter', 'sans-serif'],
       },
       boxShadow: {
-        'gold-glow': '0 0 15px rgba(212, 175, 55, 0.2)',
-        'gold-glow-lg': '0 0 25px rgba(212, 175, 55, 0.35)',
+        'gold-glow': '0 0 15px rgba(197, 155, 39, 0.2)',
+        'gold-glow-lg': '0 0 25px rgba(197, 155, 39, 0.35)',
+        'soft': '0 10px 40px -10px rgba(0,0,0,0.05)',
       }
     },
   },

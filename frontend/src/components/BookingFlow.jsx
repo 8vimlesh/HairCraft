@@ -234,10 +234,10 @@ export default function BookingFlow() {
               <div 
                 className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs border transition-all duration-300 ${
                   step === num 
-                    ? "bg-gold border-gold text-black shadow-gold-glow" 
+                    ? "bg-gold border-gold text-white shadow-gold-glow" 
                     : step > num 
-                      ? "bg-charcoal border-gold/50 text-gold" 
-                      : "bg-charcoal border-white/10 text-gray-500"
+                      ? "bg-white border-gold/50 text-gold" 
+                      : "bg-white border-gray-300 text-gray-500"
                 }`}
               >
                 {num}
@@ -245,7 +245,7 @@ export default function BookingFlow() {
               {num < 4 && (
                 <div 
                   className={`h-0.5 flex-1 mx-2 transition-all duration-500 ${
-                    step > num ? "bg-gold/40" : "bg-white/5"
+                    step > num ? "bg-gold/40" : "bg-gray-200"
                   }`}
                 />
               )}
@@ -276,33 +276,33 @@ export default function BookingFlow() {
           >
             <div className="text-center space-y-2">
               <h2 className="text-2xl font-bold tracking-tight">Select Category</h2>
-              <p className="text-gray-400 text-sm">Choose grooming tailored for your styling needs</p>
+              <p className="text-gray-500 text-sm">Choose grooming tailored for your styling needs</p>
             </div>
 
             <div className="grid grid-cols-2 gap-4 pt-4">
               <button 
                 onClick={() => handleCategorySelect("male")}
-                className="bg-charcoal-dark border border-white/5 hover:border-gold/30 rounded-2xl p-6 flex flex-col items-center justify-center gap-4 transition-all duration-300 group hover:shadow-gold-glow text-center"
+                className="bg-cream-dark border border-gray-200 hover:border-gold/30 rounded-2xl p-6 flex flex-col items-center justify-center gap-4 transition-all duration-300 group hover:shadow-gold-glow text-center"
               >
                 <div className="w-16 h-16 rounded-full bg-gold/5 flex items-center justify-center border border-gold/10 group-hover:border-gold/30 group-hover:bg-gold/10 transition-colors">
                   <Scissors className="w-8 h-8 text-gold" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg text-white group-hover:text-gold transition-colors">Men's</h3>
-                  <p className="text-gray-400 text-xs mt-1">Grooming & Haircuts</p>
+                  <h3 className="font-semibold text-lg text-gray-900 group-hover:text-gold transition-colors">Men's</h3>
+                  <p className="text-gray-500 text-xs mt-1">Grooming & Haircuts</p>
                 </div>
               </button>
 
               <button 
                 onClick={() => handleCategorySelect("female")}
-                className="bg-charcoal-dark border border-white/5 hover:border-gold/30 rounded-2xl p-6 flex flex-col items-center justify-center gap-4 transition-all duration-300 group hover:shadow-gold-glow text-center"
+                className="bg-cream-dark border border-gray-200 hover:border-gold/30 rounded-2xl p-6 flex flex-col items-center justify-center gap-4 transition-all duration-300 group hover:shadow-gold-glow text-center"
               >
                 <div className="w-16 h-16 rounded-full bg-gold/5 flex items-center justify-center border border-gold/10 group-hover:border-gold/30 group-hover:bg-gold/10 transition-colors">
                   <Sparkles className="w-8 h-8 text-gold" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg text-white group-hover:text-gold transition-colors">Women's</h3>
-                  <p className="text-gray-400 text-xs mt-1">Styling & Haircuts</p>
+                  <h3 className="font-semibold text-lg text-gray-900 group-hover:text-gold transition-colors">Women's</h3>
+                  <p className="text-gray-500 text-xs mt-1">Styling & Haircuts</p>
                 </div>
               </button>
             </div>
@@ -321,7 +321,7 @@ export default function BookingFlow() {
             <div className="flex items-center justify-between">
               <button 
                 onClick={() => setStep(1)} 
-                className="text-gray-400 hover:text-white flex items-center gap-1 text-sm"
+                className="text-gray-500 hover:text-gold flex items-center gap-1 text-sm"
               >
                 <ChevronLeft className="w-4 h-4" /> Back
               </button>
@@ -332,13 +332,13 @@ export default function BookingFlow() {
 
             <div className="space-y-2">
               <h2 className="text-2xl font-bold tracking-tight">Select Service</h2>
-              <p className="text-gray-400 text-sm">Choose from our gold-standard collection</p>
+              <p className="text-gray-500 text-sm">Choose from our gold-standard collection</p>
             </div>
 
             {loading ? (
               <div className="flex flex-col items-center justify-center py-20 gap-3">
                 <Loader2 className="w-8 h-8 text-gold animate-spin" />
-                <span className="text-gray-400 text-sm">Crafting service list...</span>
+                <span className="text-gray-500 text-sm">Crafting service list...</span>
               </div>
             ) : (
               <div className="space-y-3 max-h-[380px] overflow-y-auto pr-1">
@@ -346,13 +346,13 @@ export default function BookingFlow() {
                   <div 
                     key={service._id}
                     onClick={() => handleServiceSelect(service)}
-                    className="bg-charcoal border border-white/5 hover:border-gold/20 rounded-xl p-4 flex items-center justify-between cursor-pointer group hover:bg-charcoal-light transition-all duration-300"
+                    className="bg-white border border-gray-200 hover:border-gold/20 rounded-xl p-4 flex items-center justify-between cursor-pointer group hover:bg-cream-deep transition-all duration-300"
                   >
                     <div className="space-y-1">
-                      <h3 className="font-semibold text-white group-hover:text-gold transition-colors">
+                      <h3 className="font-semibold text-gray-900 group-hover:text-gold transition-colors">
                         {service.name}
                       </h3>
-                      <div className="flex items-center gap-3 text-xs text-gray-400">
+                      <div className="flex items-center gap-3 text-xs text-gray-500">
                         <span className="flex items-center gap-1">
                           <Clock className="w-3.5 h-3.5" /> {service.duration_minutes} mins
                         </span>
@@ -382,18 +382,18 @@ export default function BookingFlow() {
             <div className="flex items-center justify-between">
               <button 
                 onClick={() => setStep(2)} 
-                className="text-gray-400 hover:text-white flex items-center gap-1 text-sm"
+                className="text-gray-500 hover:text-gold flex items-center gap-1 text-sm"
               >
                 <ChevronLeft className="w-4 h-4" /> Back
               </button>
-              <span className="text-xs text-gray-400 font-medium">
+              <span className="text-xs text-gray-500 font-medium">
                 {selectedService?.name}
               </span>
             </div>
 
             <div className="space-y-2">
               <h2 className="text-2xl font-bold tracking-tight">Pick Date & Time</h2>
-              <p className="text-gray-400 text-sm">Select an available schedule</p>
+              <p className="text-gray-500 text-sm">Select an available schedule</p>
             </div>
 
             {/* Dates Slider */}
@@ -404,8 +404,8 @@ export default function BookingFlow() {
                   onClick={() => handleDateSelect(d.dateStr)}
                   className={`flex flex-col items-center justify-center p-3 rounded-xl min-w-[64px] border shrink-0 transition-all duration-300 ${
                     selectedDate === d.dateStr
-                      ? "bg-gold border-gold text-black shadow-gold-glow"
-                      : "bg-charcoal border-white/5 text-gray-400 hover:border-gold/30 hover:text-white"
+                      ? "bg-gold border-gold text-white shadow-gold-glow"
+                      : "bg-white border-gray-200 text-gray-500 hover:border-gold/30 hover:text-gold"
                   }`}
                 >
                   <span className="text-[10px] uppercase font-bold tracking-wider">{d.dayName}</span>
@@ -424,10 +424,10 @@ export default function BookingFlow() {
               {loading ? (
                 <div className="flex flex-col items-center justify-center py-12 gap-2">
                   <Loader2 className="w-6 h-6 text-gold animate-spin" />
-                  <span className="text-gray-400 text-xs">Checking availability...</span>
+                  <span className="text-gray-500 text-xs">Checking availability...</span>
                 </div>
               ) : slots.length === 0 ? (
-                <div className="bg-charcoal/50 border border-white/5 text-center py-10 rounded-xl text-gray-400 text-sm">
+                <div className="bg-white/50 border border-gray-200 text-center py-10 rounded-xl text-gray-500 text-sm">
                   No slots available on this date.
                 </div>
               ) : (
@@ -440,8 +440,8 @@ export default function BookingFlow() {
                         onClick={() => handleSlotSelect(slot)}
                         className={`py-2 px-3 rounded-lg border text-center font-semibold text-xs transition-all duration-200 ${
                           isSelected
-                            ? "bg-gold border-gold text-black shadow-gold-glow"
-                            : "bg-charcoal border-white/5 text-gray-300 hover:border-gold/30 hover:text-white"
+                            ? "bg-gold border-gold text-white shadow-gold-glow"
+                            : "bg-white border-gray-200 text-gray-700 hover:border-gold/30 hover:text-gold"
                         }`}
                       >
                         {slot.time}
@@ -475,11 +475,11 @@ export default function BookingFlow() {
             <div className="flex items-center justify-between">
               <button 
                 onClick={() => setStep(3)} 
-                className="text-gray-400 hover:text-white flex items-center gap-1 text-sm"
+                className="text-gray-500 hover:text-gold flex items-center gap-1 text-sm"
               >
                 <ChevronLeft className="w-4 h-4" /> Back
               </button>
-              <div className="text-xs text-gray-400 flex items-center gap-2">
+              <div className="text-xs text-gray-500 flex items-center gap-2">
                 <Calendar className="w-3.5 h-3.5 text-gold" /> {selectedDate}
                 <Clock className="w-3.5 h-3.5 text-gold" /> {selectedSlot?.time}
               </div>
@@ -487,12 +487,12 @@ export default function BookingFlow() {
 
             <div className="space-y-2">
               <h2 className="text-2xl font-bold tracking-tight">Your Details</h2>
-              <p className="text-gray-400 text-sm">Verify via Phone OTP to secure booking</p>
+              <p className="text-gray-500 text-sm">Verify via Phone OTP to secure booking</p>
             </div>
 
             <form onSubmit={handleFormSubmit} className="space-y-4">
               <div className="space-y-1">
-                <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Full Name *</label>
+                <label className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Full Name *</label>
                 <div className="relative">
                   <User className="w-4 h-4 text-gray-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
                   <input
@@ -501,13 +501,13 @@ export default function BookingFlow() {
                     placeholder="Enter your name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-charcoal border border-white/5 rounded-xl py-3 pl-11 pr-4 text-sm text-white placeholder-gray-500 focus:border-gold/50 focus:outline-none transition-colors"
+                    className="w-full bg-white border border-gray-200 rounded-xl py-3 pl-11 pr-4 text-sm text-gray-900 placeholder-gray-500 focus:border-gold/50 focus:outline-none transition-colors"
                   />
                 </div>
               </div>
 
               <div className="space-y-1">
-                <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Mobile Number *</label>
+                <label className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Mobile Number *</label>
                 <div className="relative">
                   <Phone className="w-4 h-4 text-gray-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
                   <input
@@ -516,20 +516,20 @@ export default function BookingFlow() {
                     placeholder="+919999999999"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full bg-charcoal border border-white/5 rounded-xl py-3 pl-11 pr-4 text-sm text-white placeholder-gray-500 focus:border-gold/50 focus:outline-none transition-colors"
+                    className="w-full bg-white border border-gray-200 rounded-xl py-3 pl-11 pr-4 text-sm text-gray-900 placeholder-gray-500 focus:border-gold/50 focus:outline-none transition-colors"
                   />
                 </div>
                 <p className="text-[10px] text-gray-500">Include country code. Real SMS or Mock accepted.</p>
               </div>
 
               <div className="space-y-1">
-                <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Special Notes (Optional)</label>
+                <label className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Special Notes (Optional)</label>
                 <textarea
                   rows={3}
                   placeholder="Styling preferences, requests, etc."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full bg-charcoal border border-white/5 rounded-xl py-3 px-4 text-sm text-white placeholder-gray-500 focus:border-gold/50 focus:outline-none transition-colors resize-none"
+                  className="w-full bg-white border border-gray-200 rounded-xl py-3 px-4 text-sm text-gray-900 placeholder-gray-500 focus:border-gold/50 focus:outline-none transition-colors resize-none"
                 />
               </div>
 
@@ -563,8 +563,8 @@ export default function BookingFlow() {
           >
             <div className="text-center space-y-2">
               <h2 className="text-2xl font-bold tracking-tight">Enter OTP</h2>
-              <p className="text-gray-400 text-sm">
-                We sent a 6-digit verification code to <strong className="text-white">{formData.phone}</strong>
+              <p className="text-gray-500 text-sm">
+                We sent a 6-digit verification code to <strong className="text-gray-900">{formData.phone}</strong>
               </p>
             </div>
 
@@ -582,7 +582,7 @@ export default function BookingFlow() {
                 placeholder="123456"
                 value={otpCode}
                 onChange={(e) => setOtpCode(e.target.value.replace(/\D/g, ""))}
-                className="w-full bg-charcoal border border-white/5 rounded-xl py-3.5 text-center text-2xl tracking-[0.5em] font-bold text-gold placeholder-gray-600 focus:border-gold/50 focus:outline-none transition-colors"
+                className="w-full bg-white border border-gray-200 rounded-xl py-3.5 text-center text-2xl tracking-[0.5em] font-bold text-gold placeholder-gray-600 focus:border-gold/50 focus:outline-none transition-colors"
               />
               <p className="text-[11px] text-gray-500 text-center">
                 Mock mode default code: <strong className="text-gold">123456</strong>
@@ -628,27 +628,27 @@ export default function BookingFlow() {
 
             <div className="space-y-2">
               <h2 className="text-2xl font-bold tracking-tight text-gold">Appointment Confirmed!</h2>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-500 text-sm">
                 Your reservation is secured. A confirmation message has been dispatched.
               </p>
             </div>
 
             {/* Receipt Ticket Visual */}
-            <div className="bg-charcoal border border-white/5 rounded-2xl text-left overflow-hidden shadow-2xl relative">
-              <div className="bg-gradient-to-r from-gold-dark/20 to-gold/5 px-6 py-4 border-b border-white/5">
+            <div className="bg-white border border-gray-200 rounded-2xl text-left overflow-hidden shadow-2xl relative">
+              <div className="bg-gradient-to-r from-gold-dark/20 to-gold/5 px-6 py-4 border-b border-gray-200">
                 <h3 className="font-bold text-xs uppercase tracking-wider text-gold">Booking Receipt</h3>
-                <p className="text-[10px] text-gray-400 mt-0.5">Booking ID: #{confirmedBooking._id.slice(-6).toUpperCase()}</p>
+                <p className="text-[10px] text-gray-500 mt-0.5">Booking ID: #{confirmedBooking._id.slice(-6).toUpperCase()}</p>
               </div>
               
               <div className="p-6 space-y-4 text-sm relative">
                 {/* Decorative punched holes on sides */}
-                <div className="absolute w-4 h-4 rounded-full bg-charcoal-deep -left-2 top-[35%] border-r border-white/5" />
-                <div className="absolute w-4 h-4 rounded-full bg-charcoal-deep -right-2 top-[35%] border-l border-white/5" />
+                <div className="absolute w-4 h-4 rounded-full bg-cream -left-2 top-[35%] border-r border-gray-200" />
+                <div className="absolute w-4 h-4 rounded-full bg-cream -right-2 top-[35%] border-l border-gray-200" />
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-2 border-b border-white/5 pb-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-2 border-b border-gray-200 pb-4">
                   <div>
                     <span className="text-[10px] text-gray-500 uppercase font-semibold">Customer</span>
-                    <p className="font-medium text-white mt-0.5">{confirmedBooking.customer_name}</p>
+                    <p className="font-medium text-gray-900 mt-0.5">{confirmedBooking.customer_name}</p>
                   </div>
                   <div>
                     <span className="text-[10px] text-gray-500 uppercase font-semibold">Service</span>
@@ -656,18 +656,18 @@ export default function BookingFlow() {
                   </div>
                   <div>
                     <span className="text-[10px] text-gray-500 uppercase font-semibold">Date</span>
-                    <p className="font-medium text-white mt-0.5">{confirmedBooking.date}</p>
+                    <p className="font-medium text-gray-900 mt-0.5">{confirmedBooking.date}</p>
                   </div>
                   <div>
                     <span className="text-[10px] text-gray-500 uppercase font-semibold">Time Slot</span>
-                    <p className="font-medium text-white mt-0.5">{confirmedBooking.time_slot}</p>
+                    <p className="font-medium text-gray-900 mt-0.5">{confirmedBooking.time_slot}</p>
                   </div>
                 </div>
 
                 <div className="flex justify-between items-center">
                   <div>
                     <span className="text-[10px] text-gray-500 uppercase font-semibold">Duration</span>
-                    <p className="font-medium text-white text-xs mt-0.5">{selectedService?.duration_minutes} mins</p>
+                    <p className="font-medium text-gray-900 text-xs mt-0.5">{selectedService?.duration_minutes} mins</p>
                   </div>
                   <div className="text-right">
                     <span className="text-[10px] text-gray-500 uppercase font-semibold">Amount Paid</span>

@@ -3,28 +3,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @theme {
-  --color-gold-light: #f5e4b7;
-  --color-gold: #d4af37;
+  --color-gold-light: #f8eed1;
+  --color-gold: #c59b27;
   --color-gold-dark: #9a7a1c;
-  --color-gold-glow: rgba(212, 175, 55, 0.15);
+  --color-gold-glow: rgba(197, 155, 39, 0.15);
   
-  --color-charcoal-light: #2d2d2d;
-  --color-charcoal: #1c1c1c;
-  --color-charcoal-dark: #0f0f0f;
-  --color-charcoal-deep: #0a0a0a;
+  --color-cream-light: #ffffff;
+  --color-cream: #fdfbf7;
+  --color-cream-dark: #f5f0e6;
+  --color-cream-deep: #eae3d5;
 
   --font-sans: 'Outfit', 'Inter', sans-serif;
 
-  --shadow-gold-glow: 0 0 15px rgba(212, 175, 55, 0.2);
-  --shadow-gold-glow-lg: 0 0 25px rgba(212, 175, 55, 0.35);
+  --shadow-gold-glow: 0 0 15px rgba(197, 155, 39, 0.2);
+  --shadow-gold-glow-lg: 0 0 25px rgba(197, 155, 39, 0.35);
+  --shadow-soft: 0 10px 40px -10px rgba(0,0,0,0.05);
 }
 
 @layer base {
   body {
-    @apply bg-charcoal-deep text-gray-100 font-sans antialiased overflow-x-hidden;
+    @apply bg-cream text-gray-900 font-sans antialiased overflow-x-hidden;
     background-image: 
-      radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.03) 0%, transparent 40%),
-      radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.02) 0%, transparent 50%);
+      radial-gradient(circle at 10% 20%, rgba(197, 155, 39, 0.03) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(197, 155, 39, 0.02) 0%, transparent 50%);
   }
 
   /* Custom Premium Scrollbar */
@@ -33,15 +34,15 @@
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    @apply bg-charcoal-deep;
+    @apply bg-cream;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-charcoal-light rounded-full hover:bg-gold-dark transition-colors duration-300;
+    @apply bg-cream-deep rounded-full hover:bg-gold-dark transition-colors duration-300;
   }
 }
 
 @utility btn-gold {
-  @apply bg-gradient-to-r from-gold-dark via-gold to-gold-dark text-black font-semibold px-6 py-3 rounded-lg shadow-gold-glow hover:shadow-gold-glow-lg transition-all duration-300 transform active:scale-95;
+  @apply bg-gradient-to-r from-gold-dark via-gold to-gold-dark text-white font-semibold px-6 py-3 rounded-lg shadow-gold-glow hover:shadow-gold-glow-lg transition-all duration-300 transform active:scale-95;
 }
 
 @utility btn-outline {
@@ -49,17 +50,17 @@
 }
 
 @utility card-glass {
-  @apply bg-charcoal/80 backdrop-blur-md border border-white/5 rounded-2xl p-6 transition-all duration-300;
+  @apply bg-white/70 backdrop-blur-md border border-gray-100 rounded-2xl p-6 transition-all duration-300 shadow-soft;
 }
 
 @utility card-gold-border {
-  @apply bg-charcoal-dark border border-gold/10 hover:border-gold/30 rounded-2xl p-6 transition-all duration-300;
+  @apply bg-white border border-gold/20 hover:border-gold/50 rounded-2xl p-6 transition-all duration-300 shadow-soft;
 }
 
 @utility gold-gradient-text {
-  @apply bg-gradient-to-r from-gold-light via-gold to-gold-dark bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-gold via-gold-dark to-gold bg-clip-text text-transparent;
 }
 
 @utility gold-border-glow {
-  @apply border border-gold/20 shadow-[0_0_15px_rgba(212,175,55,0.05)] hover:border-gold/50 hover:shadow-[0_0_20px_rgba(212,175,55,0.15)] transition-all duration-500;
+  @apply border border-gold/20 shadow-[0_0_15px_rgba(197,155,39,0.05)] hover:border-gold/50 hover:shadow-[0_0_20px_rgba(197,155,39,0.15)] transition-all duration-500;
 }

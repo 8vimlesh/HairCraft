@@ -303,7 +303,7 @@ export default function OwnerDashboard() {
     
     // Prepended empty days
     for (let i = 0; i < firstDayIndex; i++) {
-      cells.push(<div key={`empty-${i}`} className="min-h-[75px] bg-charcoal-deep/30 border border-white/5 opacity-20" />);
+      cells.push(<div key={`empty-${i}`} className="min-h-[75px] bg-cream/30 border border-gray-200 opacity-20" />);
     }
     
     const year = calendarDate.getFullYear();
@@ -320,16 +320,16 @@ export default function OwnerDashboard() {
         <div
           key={dateStr}
           onClick={() => setSelectedCalendarDateStr(isSelected ? "" : dateStr)}
-          className={`min-h-[75px] p-2 border border-white/5 cursor-pointer transition-all duration-200 flex flex-col justify-between ${
+          className={`min-h-[75px] p-2 border border-gray-200 cursor-pointer transition-all duration-200 flex flex-col justify-between ${
             isSelected 
               ? "bg-gold/10 border-gold shadow-gold-glow" 
-              : "bg-charcoal hover:bg-charcoal-light"
+              : "bg-white hover:bg-cream-deep"
           }`}
         >
-          <span className={`font-bold text-xs ${isSelected ? "text-gold" : "text-gray-400"}`}>{day}</span>
+          <span className={`font-bold text-xs ${isSelected ? "text-gold" : "text-gray-500"}`}>{day}</span>
           
           {dayBookings.length > 0 && (
-            <div className="bg-gold text-black rounded text-[9px] font-extrabold px-1.5 py-0.5 mt-2 self-start truncate max-w-full">
+            <div className="bg-gold text-white rounded text-[9px] font-extrabold px-1.5 py-0.5 mt-2 self-start truncate max-w-full">
               {dayBookings.length} Book{dayBookings.length > 1 ? "s" : ""}
             </div>
           )}
@@ -369,7 +369,7 @@ export default function OwnerDashboard() {
     return (
       <div className="max-w-md mx-auto w-full px-4 py-16">
         <div id="recaptcha-owner-container"></div>
-        <div className="bg-charcoal border border-white/5 rounded-3xl p-8 space-y-6 shadow-2xl relative overflow-hidden">
+        <div className="bg-white border border-gray-200 rounded-3xl p-8 space-y-6 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-gold-dark via-gold to-gold-dark" />
           
           <div className="flex flex-col items-center justify-center text-center space-y-2">
@@ -377,7 +377,7 @@ export default function OwnerDashboard() {
               <Shield className="w-6 h-6" />
             </div>
             <h2 className="text-2xl font-bold tracking-tight gold-gradient-text">Owner Portal</h2>
-            <p className="text-gray-400 text-sm">Log in using owner's credentials to manage salon schedule</p>
+            <p className="text-gray-500 text-sm">Log in using owner's credentials to manage salon schedule</p>
           </div>
 
           {error && (
@@ -389,7 +389,7 @@ export default function OwnerDashboard() {
           {!otpSent ? (
             <form onSubmit={handleLoginSubmit} className="space-y-4">
               <div className="space-y-1">
-                <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Owner Phone *</label>
+                <label className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Owner Phone *</label>
                 <div className="relative">
                   <Phone className="w-4 h-4 text-gray-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
                   <input
@@ -398,7 +398,7 @@ export default function OwnerDashboard() {
                     placeholder="+919999999999"
                     value={loginPhone}
                     onChange={(e) => setLoginPhone(e.target.value)}
-                    className="w-full bg-charcoal-dark border border-white/5 rounded-xl py-3 pl-11 pr-4 text-sm text-white placeholder-gray-500 focus:border-gold/50 focus:outline-none transition-colors"
+                    className="w-full bg-cream-dark border border-gray-200 rounded-xl py-3 pl-11 pr-4 text-sm text-gray-900 placeholder-gray-500 focus:border-gold/50 focus:outline-none transition-colors"
                   />
                 </div>
               </div>
@@ -414,7 +414,7 @@ export default function OwnerDashboard() {
           ) : (
             <form onSubmit={handleVerifyOtp} className="space-y-4">
               <div className="space-y-1">
-                <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider text-center block">Enter 6-digit Code</label>
+                <label className="text-xs font-semibold text-gray-500 uppercase tracking-wider text-center block">Enter 6-digit Code</label>
                 <input
                   type="text"
                   maxLength={6}
@@ -422,7 +422,7 @@ export default function OwnerDashboard() {
                   placeholder="123456"
                   value={otpCode}
                   onChange={(e) => setOtpCode(e.target.value.replace(/\D/g, ""))}
-                  className="w-full bg-charcoal-dark border border-white/5 rounded-xl py-3 text-center text-xl font-bold tracking-[0.5em] text-gold placeholder-gray-600 focus:border-gold/50 focus:outline-none transition-colors"
+                  className="w-full bg-cream-dark border border-gray-200 rounded-xl py-3 text-center text-xl font-bold tracking-[0.5em] text-gold placeholder-gray-600 focus:border-gold/50 focus:outline-none transition-colors"
                 />
               </div>
 
@@ -452,15 +452,15 @@ export default function OwnerDashboard() {
   return (
     <div className="max-w-6xl mx-auto w-full px-4 py-8 space-y-8">
       {/* Header */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-charcoal border border-white/5 p-6 rounded-3xl relative overflow-hidden">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white border border-gray-200 p-6 rounded-3xl relative overflow-hidden">
         <div className="absolute top-0 left-0 bottom-0 w-1.5 bg-gold" />
         <div className="space-y-1 pl-2">
           <h2 className="text-2xl font-bold tracking-tight">Salon Management Dashboard</h2>
-          <p className="text-gray-400 text-sm">Organize appointments, configurations, and services catalog</p>
+          <p className="text-gray-500 text-sm">Organize appointments, configurations, and services catalog</p>
         </div>
         <button 
           onClick={handleLogout}
-          className="flex items-center gap-2 text-xs font-semibold text-gray-400 hover:text-red-400 border border-white/5 hover:border-red-500/20 bg-charcoal-dark px-4 py-2.5 rounded-xl transition-all duration-300 active:scale-95 shrink-0"
+          className="flex items-center gap-2 text-xs font-semibold text-gray-500 hover:text-red-400 border border-gray-200 hover:border-red-500/20 bg-cream-dark px-4 py-2.5 rounded-xl transition-all duration-300 active:scale-95 shrink-0"
         >
           <LogOut className="w-4 h-4" /> Sign Out
         </button>
@@ -468,39 +468,39 @@ export default function OwnerDashboard() {
 
       {/* Statistics */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="bg-charcoal border border-white/5 rounded-2xl p-5 flex items-center gap-4">
+        <div className="bg-white border border-gray-200 rounded-2xl p-5 flex items-center gap-4">
           <div className="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center text-gold">
             <CalendarIcon className="w-5 h-5" />
           </div>
           <div>
             <span className="text-[10px] text-gray-500 uppercase font-bold tracking-wider">Today's Bookings</span>
-            <p className="text-2xl font-bold text-white mt-0.5">{stats.todayCount}</p>
+            <p className="text-2xl font-bold text-gray-900 mt-0.5">{stats.todayCount}</p>
           </div>
         </div>
 
-        <div className="bg-charcoal border border-white/5 rounded-2xl p-5 flex items-center gap-4">
+        <div className="bg-white border border-gray-200 rounded-2xl p-5 flex items-center gap-4">
           <div className="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center text-gold">
             <Clock className="w-5 h-5" />
           </div>
           <div>
             <span className="text-[10px] text-gray-500 uppercase font-bold tracking-wider">Active/Pending Bookings</span>
-            <p className="text-2xl font-bold text-white mt-0.5">{stats.pendingCount}</p>
+            <p className="text-2xl font-bold text-gray-900 mt-0.5">{stats.pendingCount}</p>
           </div>
         </div>
 
-        <div className="bg-charcoal border border-white/5 rounded-2xl p-5 flex items-center gap-4">
+        <div className="bg-white border border-gray-200 rounded-2xl p-5 flex items-center gap-4">
           <div className="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center text-gold">
             <Sparkles className="w-5 h-5" />
           </div>
           <div>
             <span className="text-[10px] text-gray-500 uppercase font-bold tracking-wider">Services Catalog</span>
-            <p className="text-2xl font-bold text-white mt-0.5">{stats.activeServicesCount}</p>
+            <p className="text-2xl font-bold text-gray-900 mt-0.5">{stats.activeServicesCount}</p>
           </div>
         </div>
       </div>
 
       {/* Navigation Tabs */}
-      <div className="flex overflow-x-auto scrollbar-none border-b border-white/5 gap-4">
+      <div className="flex overflow-x-auto scrollbar-none border-b border-gray-200 gap-4">
         {[
           { id: "bookings", label: "Appointments", icon: List },
           { id: "services", label: "Manage Services", icon: Sparkles },
@@ -516,7 +516,7 @@ export default function OwnerDashboard() {
               className={`flex items-center shrink-0 gap-2 pb-4 px-1 font-semibold text-sm border-b-2 transition-all duration-300 ${
                 isActive 
                   ? "border-gold text-gold" 
-                  : "border-transparent text-gray-400 hover:text-white"
+                  : "border-transparent text-gray-500 hover:text-gold"
               }`}
             >
               <Icon className="w-4 h-4" /> {tab.label}
@@ -529,26 +529,26 @@ export default function OwnerDashboard() {
       <div className="space-y-6">
         {/* TAB 1: BOOKINGS & CALENDAR */}
         {activeTab === "bookings" && (
-          <div className="bg-charcoal border border-white/5 rounded-3xl p-6 space-y-6">
+          <div className="bg-white border border-gray-200 rounded-3xl p-6 space-y-6">
             
             {/* View Mode Toggle & Calendar Actions */}
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               <div className="space-y-1">
-                <h3 className="font-bold text-lg text-white">Appointments Log</h3>
-                <p className="text-xs text-gray-400">
+                <h3 className="font-bold text-lg text-gray-900">Appointments Log</h3>
+                <p className="text-xs text-gray-500">
                   {selectedCalendarDateStr 
                     ? `Showing bookings for date: ${selectedCalendarDateStr}` 
                     : "Showing all salon bookings"}
                 </p>
               </div>
               
-              <div className="flex items-center gap-2 bg-charcoal-dark border border-white/5 p-1 rounded-xl w-full sm:w-auto">
+              <div className="flex items-center gap-2 bg-cream-dark border border-gray-200 p-1 rounded-xl w-full sm:w-auto">
                 <button
                   onClick={() => setViewMode("list")}
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 w-1/2 sm:w-auto ${
                     viewMode === "list"
-                      ? "bg-gold text-black shadow-gold-glow"
-                      : "text-gray-400 hover:text-white"
+                      ? "bg-gold text-white shadow-gold-glow"
+                      : "text-gray-500 hover:text-gold"
                   }`}
                 >
                   <List className="w-3.5 h-3.5" /> List View
@@ -557,8 +557,8 @@ export default function OwnerDashboard() {
                   onClick={() => setViewMode("calendar")}
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 w-1/2 sm:w-auto ${
                     viewMode === "calendar"
-                      ? "bg-gold text-black shadow-gold-glow"
-                      : "text-gray-400 hover:text-white"
+                      ? "bg-gold text-white shadow-gold-glow"
+                      : "text-gray-500 hover:text-gold"
                   }`}
                 >
                   <CalendarIcon className="w-3.5 h-3.5" /> Calendar View
@@ -569,7 +569,7 @@ export default function OwnerDashboard() {
             {loading ? (
               <div className="flex flex-col items-center justify-center py-20 gap-2">
                 <Loader2 className="w-8 h-8 text-gold animate-spin" />
-                <span className="text-gray-400 text-sm font-medium">Fetching salon schedule...</span>
+                <span className="text-gray-500 text-sm font-medium">Fetching salon schedule...</span>
               </div>
             ) : (
               <>
@@ -577,10 +577,10 @@ export default function OwnerDashboard() {
                 {viewMode === "calendar" && (
                   <div className="space-y-4">
                     {/* Month Picker Header */}
-                    <div className="flex items-center justify-between bg-charcoal-dark border border-white/5 px-4 py-3 rounded-2xl">
+                    <div className="flex items-center justify-between bg-cream-dark border border-gray-200 px-4 py-3 rounded-2xl">
                       <button 
                         onClick={() => changeMonth(-1)}
-                        className="p-1.5 border border-white/5 hover:border-gold/30 rounded-xl hover:text-gold transition-all"
+                        className="p-1.5 border border-gray-200 hover:border-gold/30 rounded-xl hover:text-gold transition-all"
                       >
                         <ChevronLeft className="w-4 h-4" />
                       </button>
@@ -589,17 +589,17 @@ export default function OwnerDashboard() {
                       </h4>
                       <button 
                         onClick={() => changeMonth(1)}
-                        className="p-1.5 border border-white/5 hover:border-gold/30 rounded-xl hover:text-gold transition-all"
+                        className="p-1.5 border border-gray-200 hover:border-gold/30 rounded-xl hover:text-gold transition-all"
                       >
                         <ChevronRight className="w-4 h-4" />
                       </button>
                     </div>
 
                     {/* Month Grid */}
-                    <div className="grid grid-cols-7 gap-1 border border-white/5 p-1 rounded-2xl overflow-hidden bg-charcoal-dark/50">
+                    <div className="grid grid-cols-7 gap-1 border border-gray-200 p-1 rounded-2xl overflow-hidden bg-cream-dark/50">
                       {/* Weekday Names */}
                       {calendarData.weekdays.map(d => (
-                        <div key={d} className="text-center py-2 text-[10px] uppercase font-bold text-gray-500 border-b border-white/5 bg-charcoal-dark">
+                        <div key={d} className="text-center py-2 text-[10px] uppercase font-bold text-gray-500 border-b border-gray-200 bg-cream-dark">
                           {d}
                         </div>
                       ))}
@@ -608,7 +608,7 @@ export default function OwnerDashboard() {
                     
                     {selectedCalendarDateStr && (
                       <div className="flex justify-between items-center bg-gold/5 border border-gold/10 px-4 py-2.5 rounded-xl text-xs">
-                        <span className="text-gray-400">Filtering calendar: <strong>{selectedCalendarDateStr}</strong></span>
+                        <span className="text-gray-500">Filtering calendar: <strong>{selectedCalendarDateStr}</strong></span>
                         <button 
                           onClick={() => setSelectedCalendarDateStr("")}
                           className="text-gold font-bold hover:underline"
@@ -622,14 +622,14 @@ export default function OwnerDashboard() {
 
                 {/* Bookings Table List */}
                 {filteredBookingsList.length === 0 ? (
-                  <div className="text-center py-16 text-gray-500 border border-dashed border-white/5 rounded-2xl">
+                  <div className="text-center py-16 text-gray-500 border border-dashed border-gray-200 rounded-2xl">
                     No appointments recorded for this schedule layout.
                   </div>
                 ) : (
                   <div className="overflow-x-auto">
                     <table className="w-full text-left border-collapse min-w-[600px]">
                       <thead>
-                        <tr className="border-b border-white/5 text-gray-400 text-xs font-semibold uppercase tracking-wider">
+                        <tr className="border-b border-gray-200 text-gray-500 text-xs font-semibold uppercase tracking-wider">
                           <th className="py-3 px-4">Schedule</th>
                           <th className="py-3 px-4">Client Details</th>
                           <th className="py-3 px-4">Reserved Slots</th>
@@ -641,21 +641,21 @@ export default function OwnerDashboard() {
                         {filteredBookingsList.map((booking) => {
                           const service = services.find(s => s._id === booking.service_id);
                           return (
-                            <tr key={booking._id} className="border-b border-white/5 hover:bg-white/5 transition-colors text-sm text-gray-300">
+                            <tr key={booking._id} className="border-b border-gray-200 hover:bg-white/5 transition-colors text-sm text-gray-700">
                               <td className="py-4 px-4">
-                                <span className="font-semibold text-white block">{booking.date}</span>
+                                <span className="font-semibold text-gray-900 block">{booking.date}</span>
                                 <span className="text-xs text-gold font-medium mt-1 flex items-center gap-1">
                                   <Clock className="w-3.5 h-3.5" /> {booking.time_slot}
                                 </span>
                               </td>
                               <td className="py-4 px-4">
-                                <span className="font-semibold text-white block">{booking.customer_name}</span>
-                                <span className="text-xs text-gray-400 font-medium block mt-0.5">{booking.mobile_number}</span>
+                                <span className="font-semibold text-gray-900 block">{booking.customer_name}</span>
+                                <span className="text-xs text-gray-500 font-medium block mt-0.5">{booking.mobile_number}</span>
                                 {booking.notes && <span className="text-[11px] text-gray-500 italic block mt-1">Notes: "{booking.notes}"</span>}
                               </td>
                               <td className="py-4 px-4 font-mono text-xs">
-                                <p className="font-medium text-white">{service?.name || "Service"}</p>
-                                <span className="text-gray-400 text-[10px]">({booking.slots_reserved?.join(", ")})</span>
+                                <p className="font-medium text-gray-900">{service?.name || "Service"}</p>
+                                <span className="text-gray-500 text-[10px]">({booking.slots_reserved?.join(", ")})</span>
                               </td>
                               <td className="py-4 px-4">
                                 <span className={`inline-block px-2.5 py-1 rounded-full text-[10px] uppercase font-bold tracking-wider ${
@@ -664,7 +664,7 @@ export default function OwnerDashboard() {
                                     : booking.status === "rescheduled"
                                       ? "bg-blue-500/10 text-blue-400 border border-blue-500/20"
                                       : booking.status === "completed"
-                                        ? "bg-gray-500/10 text-gray-300 border border-gray-500/20"
+                                        ? "bg-gray-500/10 text-gray-700 border border-gray-500/20"
                                         : booking.status === "no_show"
                                           ? "bg-yellow-500/10 text-yellow-400 border border-yellow-500/20"
                                           : "bg-red-500/10 text-red-400 border border-red-500/20"
@@ -721,9 +721,9 @@ export default function OwnerDashboard() {
 
         {/* TAB 2: SERVICE CRUD */}
         {activeTab === "services" && (
-          <div className="bg-charcoal border border-white/5 rounded-3xl p-6 space-y-6">
+          <div className="bg-white border border-gray-200 rounded-3xl p-6 space-y-6">
             <div className="flex justify-between items-center">
-              <h3 className="font-bold text-lg text-white">Services Catalog</h3>
+              <h3 className="font-bold text-lg text-gray-900">Services Catalog</h3>
               <button 
                 onClick={() => {
                   setEditingServiceId(null);
@@ -741,13 +741,13 @@ export default function OwnerDashboard() {
               {services.map((service) => (
                 <div 
                   key={service._id} 
-                  className={`bg-charcoal-dark border rounded-2xl p-5 space-y-4 relative flex flex-col justify-between transition-all duration-300 ${
-                    service.active ? "border-white/5 hover:border-gold/30" : "border-red-950/20 opacity-60"
+                  className={`bg-cream-dark border rounded-2xl p-5 space-y-4 relative flex flex-col justify-between transition-all duration-300 ${
+                    service.active ? "border-gray-200 hover:border-gold/30" : "border-red-950/20 opacity-60"
                   }`}
                 >
                   <div className="space-y-1.5">
                     <div className="flex justify-between items-start">
-                      <h4 className="font-bold text-white text-base">
+                      <h4 className="font-bold text-gray-900 text-base">
                         {service.name}
                       </h4>
                       <span className={`text-[9px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full ${
@@ -756,7 +756,7 @@ export default function OwnerDashboard() {
                         {service.category}
                       </span>
                     </div>
-                    <div className="flex items-center gap-3 text-xs text-gray-400 font-medium">
+                    <div className="flex items-center gap-3 text-xs text-gray-500 font-medium">
                       <span className="flex items-center gap-1">
                         <Clock className="w-3.5 h-3.5" /> {service.duration_minutes} mins
                       </span>
@@ -766,10 +766,10 @@ export default function OwnerDashboard() {
                     </div>
                   </div>
 
-                  <div className="flex gap-2 border-t border-white/5 pt-3 justify-end text-xs font-semibold">
+                  <div className="flex gap-2 border-t border-gray-200 pt-3 justify-end text-xs font-semibold">
                     <button
                       onClick={() => handleEditService(service)}
-                      className="flex items-center gap-1 p-2 bg-charcoal hover:bg-white/5 rounded-xl border border-white/5 text-gray-400 hover:text-white transition-all"
+                      className="flex items-center gap-1 p-2 bg-white hover:bg-white/5 rounded-xl border border-gray-200 text-gray-500 hover:text-gold transition-all"
                     >
                       <Edit3 className="w-3.5 h-3.5" /> Edit
                     </button>
@@ -789,8 +789,8 @@ export default function OwnerDashboard() {
             {/* Modal Form */}
             {isServiceModalOpen && (
               <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-                <div className="bg-charcoal border border-white/5 rounded-3xl max-w-sm w-full p-6 space-y-4 shadow-2xl relative">
-                  <h4 className="font-bold text-lg text-white">
+                <div className="bg-white border border-gray-200 rounded-3xl max-w-sm w-full p-6 space-y-4 shadow-2xl relative">
+                  <h4 className="font-bold text-lg text-gray-900">
                     {editingServiceId ? "Edit Service Parameters" : "Create Salon Service"}
                   </h4>
                   
@@ -802,7 +802,7 @@ export default function OwnerDashboard() {
                         required
                         value={serviceForm.name}
                         onChange={(e) => setServiceForm({ ...serviceForm, name: e.target.value })}
-                        className="w-full bg-charcoal-dark border border-white/5 rounded-lg py-2.5 px-3 text-xs text-white focus:outline-none"
+                        className="w-full bg-cream-dark border border-gray-200 rounded-lg py-2.5 px-3 text-xs text-gray-900 focus:outline-none"
                       />
                     </div>
 
@@ -812,7 +812,7 @@ export default function OwnerDashboard() {
                         <select
                           value={serviceForm.category}
                           onChange={(e) => setServiceForm({ ...serviceForm, category: e.target.value })}
-                          className="w-full bg-charcoal-dark border border-white/5 rounded-lg py-2.5 px-2 text-xs text-white focus:outline-none"
+                          className="w-full bg-cream-dark border border-gray-200 rounded-lg py-2.5 px-2 text-xs text-gray-900 focus:outline-none"
                         >
                           <option value="male">Male</option>
                           <option value="female">Female</option>
@@ -826,7 +826,7 @@ export default function OwnerDashboard() {
                           required
                           value={serviceForm.duration_minutes}
                           onChange={(e) => setServiceForm({ ...serviceForm, duration_minutes: parseInt(e.target.value) })}
-                          className="w-full bg-charcoal-dark border border-white/5 rounded-lg py-2.5 px-3 text-xs text-white focus:outline-none"
+                          className="w-full bg-cream-dark border border-gray-200 rounded-lg py-2.5 px-3 text-xs text-gray-900 focus:outline-none"
                         />
                       </div>
                     </div>
@@ -838,7 +838,7 @@ export default function OwnerDashboard() {
                         required
                         value={serviceForm.price}
                         onChange={(e) => setServiceForm({ ...serviceForm, price: parseFloat(e.target.value) })}
-                        className="w-full bg-charcoal-dark border border-white/5 rounded-lg py-2.5 px-3 text-xs text-white focus:outline-none"
+                        className="w-full bg-cream-dark border border-gray-200 rounded-lg py-2.5 px-3 text-xs text-gray-900 focus:outline-none"
                       />
                     </div>
 
@@ -869,8 +869,8 @@ export default function OwnerDashboard() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             {/* Base Config & Closed Days */}
-            <div className="bg-charcoal border border-white/5 rounded-3xl p-6 space-y-6">
-              <h3 className="font-bold text-lg text-white">General Salon Settings</h3>
+            <div className="bg-white border border-gray-200 rounded-3xl p-6 space-y-6">
+              <h3 className="font-bold text-lg text-gray-900">General Salon Settings</h3>
               
               <div className="space-y-4">
                 <div className="grid grid-cols-2 gap-3">
@@ -881,7 +881,7 @@ export default function OwnerDashboard() {
                       placeholder="10:00"
                       value={workingHours.start}
                       onChange={(e) => setWorkingHours({ ...workingHours, start: e.target.value })}
-                      className="w-full bg-charcoal-dark border border-white/5 rounded-xl py-3 px-4 text-sm text-white focus:outline-none"
+                      className="w-full bg-cream-dark border border-gray-200 rounded-xl py-3 px-4 text-sm text-gray-900 focus:outline-none"
                     />
                   </div>
                   <div className="space-y-1">
@@ -891,7 +891,7 @@ export default function OwnerDashboard() {
                       placeholder="22:00"
                       value={workingHours.end}
                       onChange={(e) => setWorkingHours({ ...workingHours, end: e.target.value })}
-                      className="w-full bg-charcoal-dark border border-white/5 rounded-xl py-3 px-4 text-sm text-white focus:outline-none"
+                      className="w-full bg-cream-dark border border-gray-200 rounded-xl py-3 px-4 text-sm text-gray-900 focus:outline-none"
                     />
                   </div>
                 </div>
@@ -902,7 +902,7 @@ export default function OwnerDashboard() {
                     type="number"
                     value={slotDuration}
                     onChange={(e) => setSlotDuration(parseInt(e.target.value))}
-                    className="w-full bg-charcoal-dark border border-white/5 rounded-xl py-3 px-4 text-sm text-white focus:outline-none"
+                    className="w-full bg-cream-dark border border-gray-200 rounded-xl py-3 px-4 text-sm text-gray-900 focus:outline-none"
                   />
                 </div>
 
@@ -915,15 +915,15 @@ export default function OwnerDashboard() {
               </div>
 
               {/* Holiday Management */}
-              <div className="border-t border-white/5 pt-6 space-y-4">
-                <h4 className="font-bold text-sm text-white uppercase tracking-wider">Holidays / Closed Dates</h4>
+              <div className="border-t border-gray-200 pt-6 space-y-4">
+                <h4 className="font-bold text-sm text-gray-900 uppercase tracking-wider">Holidays / Closed Dates</h4>
                 
                 <div className="flex gap-2">
                   <input
                     type="date"
                     value={newClosedDate}
                     onChange={(e) => setNewClosedDate(e.target.value)}
-                    className="flex-1 bg-charcoal-dark border border-white/5 rounded-xl py-2 px-3 text-xs text-white focus:outline-none"
+                    className="flex-1 bg-cream-dark border border-gray-200 rounded-xl py-2 px-3 text-xs text-gray-900 focus:outline-none"
                   />
                   <button 
                     onClick={handleAddClosedDate}
@@ -950,8 +950,8 @@ export default function OwnerDashboard() {
             </div>
 
             {/* Blocked Slots Breaks */}
-            <div className="bg-charcoal border border-white/5 rounded-3xl p-6 space-y-6">
-              <h3 className="font-bold text-lg text-white">Manual Schedule Blocking</h3>
+            <div className="bg-white border border-gray-200 rounded-3xl p-6 space-y-6">
+              <h3 className="font-bold text-lg text-gray-900">Manual Schedule Blocking</h3>
               
               <form onSubmit={handleBlockSlot} className="space-y-4">
                 <div className="grid grid-cols-2 gap-3">
@@ -962,7 +962,7 @@ export default function OwnerDashboard() {
                       required
                       value={blockForm.date}
                       onChange={(e) => setBlockForm({ ...blockForm, date: e.target.value })}
-                      className="w-full bg-charcoal-dark border border-white/5 rounded-xl py-3 px-4 text-xs text-white focus:outline-none"
+                      className="w-full bg-cream-dark border border-gray-200 rounded-xl py-3 px-4 text-xs text-gray-900 focus:outline-none"
                     />
                   </div>
                   <div className="space-y-1">
@@ -973,7 +973,7 @@ export default function OwnerDashboard() {
                       placeholder="14:00"
                       value={blockForm.time}
                       onChange={(e) => setBlockForm({ ...blockForm, time: e.target.value })}
-                      className="w-full bg-charcoal-dark border border-white/5 rounded-xl py-3 px-4 text-xs text-white focus:outline-none"
+                      className="w-full bg-cream-dark border border-gray-200 rounded-xl py-3 px-4 text-xs text-gray-900 focus:outline-none"
                     />
                   </div>
                 </div>
@@ -985,7 +985,7 @@ export default function OwnerDashboard() {
                     placeholder="Staff lunch break, salon maintenance, etc."
                     value={blockForm.reason}
                     onChange={(e) => setBlockForm({ ...blockForm, reason: e.target.value })}
-                    className="w-full bg-charcoal-dark border border-white/5 rounded-xl py-3 px-4 text-xs text-white focus:outline-none"
+                    className="w-full bg-cream-dark border border-gray-200 rounded-xl py-3 px-4 text-xs text-gray-900 focus:outline-none"
                   />
                 </div>
 
@@ -999,13 +999,13 @@ export default function OwnerDashboard() {
 
               {/* Blocked slots list */}
               {config && config.blocked_slots?.length > 0 && (
-                <div className="border-t border-white/5 pt-6 space-y-3">
-                  <h4 className="font-bold text-sm text-white uppercase tracking-wider">Blocked Slots Directory</h4>
+                <div className="border-t border-gray-200 pt-6 space-y-3">
+                  <h4 className="font-bold text-sm text-gray-900 uppercase tracking-wider">Blocked Slots Directory</h4>
                   <div className="space-y-2 max-h-[200px] overflow-y-auto pr-1">
                     {config.blocked_slots.map((block, idx) => (
-                      <div key={idx} className="bg-charcoal-dark border border-white/5 rounded-xl p-3 flex justify-between items-center text-xs text-gray-300">
+                      <div key={idx} className="bg-cream-dark border border-gray-200 rounded-xl p-3 flex justify-between items-center text-xs text-gray-700">
                         <div>
-                          <span className="font-semibold text-white">{block.date} at {block.time}</span>
+                          <span className="font-semibold text-gray-900">{block.date} at {block.time}</span>
                           {block.reason && <p className="text-[10px] text-gray-500 mt-0.5">Reason: "{block.reason}"</p>}
                         </div>
                         <button 
@@ -1025,34 +1025,34 @@ export default function OwnerDashboard() {
 
         {/* TAB 4: ANALYTICS */}
         {activeTab === "analytics" && (
-          <div className="bg-charcoal border border-white/5 rounded-3xl p-6 space-y-6">
+          <div className="bg-white border border-gray-200 rounded-3xl p-6 space-y-6">
             <div className="space-y-1">
-              <h3 className="font-bold text-lg text-white">Business Analytics & Metrics</h3>
-              <p className="text-xs text-gray-400">Real-time indicators of salon performance and booking statistics</p>
+              <h3 className="font-bold text-lg text-gray-900">Business Analytics & Metrics</h3>
+              <p className="text-xs text-gray-500">Real-time indicators of salon performance and booking statistics</p>
             </div>
 
             {loading || !analyticsData ? (
               <div className="flex flex-col items-center justify-center py-20 gap-2">
                 <Loader2 className="w-8 h-8 text-gold animate-spin" />
-                <span className="text-gray-400 text-sm font-medium">Computing analytics reports...</span>
+                <span className="text-gray-500 text-sm font-medium">Computing analytics reports...</span>
               </div>
             ) : (
               <div className="space-y-8">
                 {/* Metrics Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className="bg-charcoal-dark border border-white/5 p-5 rounded-2xl space-y-1">
+                  <div className="bg-cream-dark border border-gray-200 p-5 rounded-2xl space-y-1">
                     <span className="text-[10px] text-gray-500 uppercase font-bold tracking-wider">Total Bookings</span>
-                    <p className="text-2xl font-bold text-white">{analyticsData.total_bookings}</p>
+                    <p className="text-2xl font-bold text-gray-900">{analyticsData.total_bookings}</p>
                   </div>
-                  <div className="bg-charcoal-dark border border-white/5 p-5 rounded-2xl space-y-1">
+                  <div className="bg-cream-dark border border-gray-200 p-5 rounded-2xl space-y-1">
                     <span className="text-[10px] text-gray-500 uppercase font-bold tracking-wider">Total Revenue</span>
                     <p className="text-2xl font-bold text-gold">₹{analyticsData.total_revenue}</p>
                   </div>
-                  <div className="bg-charcoal-dark border border-white/5 p-5 rounded-2xl space-y-1">
+                  <div className="bg-cream-dark border border-gray-200 p-5 rounded-2xl space-y-1">
                     <span className="text-[10px] text-gray-500 uppercase font-bold tracking-wider">No-Show Rate</span>
                     <p className="text-2xl font-bold text-yellow-400">{analyticsData.no_show_rate}%</p>
                   </div>
-                  <div className="bg-charcoal-dark border border-white/5 p-5 rounded-2xl space-y-1">
+                  <div className="bg-cream-dark border border-gray-200 p-5 rounded-2xl space-y-1">
                     <span className="text-[10px] text-gray-500 uppercase font-bold tracking-wider">Avg Checkout Time</span>
                     <p className="text-2xl font-bold text-blue-400">
                       {analyticsData.average_completion_time_seconds > 0 
@@ -1065,13 +1065,13 @@ export default function OwnerDashboard() {
                 {/* Status and Category Split Bars */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Appointment Status Splits */}
-                  <div className="bg-charcoal-dark border border-white/5 p-6 rounded-2xl space-y-4">
-                    <h4 className="font-semibold text-sm text-white border-b border-white/5 pb-2">Status Breakdown</h4>
+                  <div className="bg-cream-dark border border-gray-200 p-6 rounded-2xl space-y-4">
+                    <h4 className="font-semibold text-sm text-gray-900 border-b border-gray-200 pb-2">Status Breakdown</h4>
                     <div className="space-y-3">
                       <div>
-                        <div className="flex justify-between text-xs text-gray-400 mb-1">
+                        <div className="flex justify-between text-xs text-gray-500 mb-1">
                           <span>Completed</span>
-                          <span className="font-bold text-white">{analyticsData.completed_bookings}</span>
+                          <span className="font-bold text-gray-900">{analyticsData.completed_bookings}</span>
                         </div>
                         <div className="w-full bg-white/5 h-2 rounded-full overflow-hidden">
                           <div 
@@ -1081,9 +1081,9 @@ export default function OwnerDashboard() {
                         </div>
                       </div>
                       <div>
-                        <div className="flex justify-between text-xs text-gray-400 mb-1">
+                        <div className="flex justify-between text-xs text-gray-500 mb-1">
                           <span>Cancelled</span>
-                          <span className="font-bold text-white">{analyticsData.cancelled_bookings}</span>
+                          <span className="font-bold text-gray-900">{analyticsData.cancelled_bookings}</span>
                         </div>
                         <div className="w-full bg-white/5 h-2 rounded-full overflow-hidden">
                           <div 
@@ -1093,9 +1093,9 @@ export default function OwnerDashboard() {
                         </div>
                       </div>
                       <div>
-                        <div className="flex justify-between text-xs text-gray-400 mb-1">
+                        <div className="flex justify-between text-xs text-gray-500 mb-1">
                           <span>No-Shows</span>
-                          <span className="font-bold text-white">{analyticsData.no_shows}</span>
+                          <span className="font-bold text-gray-900">{analyticsData.no_shows}</span>
                         </div>
                         <div className="w-full bg-white/5 h-2 rounded-full overflow-hidden">
                           <div 
@@ -1108,12 +1108,12 @@ export default function OwnerDashboard() {
                   </div>
 
                   {/* Gender Category Split */}
-                  <div className="bg-charcoal-dark border border-white/5 p-6 rounded-2xl space-y-4">
-                    <h4 className="font-semibold text-sm text-white border-b border-white/5 pb-2">Category Split (Men vs Women)</h4>
+                  <div className="bg-cream-dark border border-gray-200 p-6 rounded-2xl space-y-4">
+                    <h4 className="font-semibold text-sm text-gray-900 border-b border-gray-200 pb-2">Category Split (Men vs Women)</h4>
                     
                     {analyticsData.category_split && (
                       <div className="space-y-4 flex flex-col justify-center h-full">
-                        <div className="flex items-center justify-between text-xs text-gray-400">
+                        <div className="flex items-center justify-between text-xs text-gray-500">
                           <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-blue-500 block" /> Men's ({analyticsData.category_split.male})</span>
                           <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-pink-500 block" /> Women's ({analyticsData.category_split.female})</span>
                         </div>
@@ -1153,9 +1153,9 @@ export default function OwnerDashboard() {
       {/* Reschedule Dialog Modal */}
       {reschedulingBooking && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-charcoal border border-white/5 rounded-3xl max-w-sm w-full p-6 space-y-4 shadow-2xl relative text-left">
-            <h4 className="font-bold text-lg text-white">Reschedule Appointment</h4>
-            <p className="text-gray-400 text-xs">Pick rescheduling parameters for {reschedulingBooking.customer_name}</p>
+          <div className="bg-white border border-gray-200 rounded-3xl max-w-sm w-full p-6 space-y-4 shadow-2xl relative text-left">
+            <h4 className="font-bold text-lg text-gray-900">Reschedule Appointment</h4>
+            <p className="text-gray-500 text-xs">Pick rescheduling parameters for {reschedulingBooking.customer_name}</p>
             
             <div className="space-y-3">
               <div className="space-y-1">
@@ -1164,7 +1164,7 @@ export default function OwnerDashboard() {
                   type="date"
                   value={rescheduleDate}
                   onChange={(e) => setRescheduleDate(e.target.value)}
-                  className="w-full bg-charcoal-dark border border-white/5 rounded-lg py-2.5 px-3 text-xs text-white focus:outline-none"
+                  className="w-full bg-cream-dark border border-gray-200 rounded-lg py-2.5 px-3 text-xs text-gray-900 focus:outline-none"
                 />
               </div>
 
@@ -1173,7 +1173,7 @@ export default function OwnerDashboard() {
                 <select
                   value={rescheduleTime}
                   onChange={(e) => setRescheduleTime(e.target.value)}
-                  className="w-full bg-charcoal-dark border border-white/5 rounded-lg py-2.5 px-2 text-xs text-white focus:outline-none"
+                  className="w-full bg-cream-dark border border-gray-200 rounded-lg py-2.5 px-2 text-xs text-gray-900 focus:outline-none"
                 >
                   <option value="">-- Select slot --</option>
                   {availableRescheduleSlots.map(s => (
