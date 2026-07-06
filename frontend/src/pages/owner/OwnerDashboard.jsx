@@ -500,7 +500,7 @@ export default function OwnerDashboard() {
       </div>
 
       {/* Navigation Tabs */}
-      <div className="flex border-b border-white/5 gap-4">
+      <div className="flex overflow-x-auto scrollbar-none border-b border-white/5 gap-4">
         {[
           { id: "bookings", label: "Appointments", icon: List },
           { id: "services", label: "Manage Services", icon: Sparkles },
@@ -513,7 +513,7 @@ export default function OwnerDashboard() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 pb-4 px-1 font-semibold text-sm border-b-2 transition-all duration-300 ${
+              className={`flex items-center shrink-0 gap-2 pb-4 px-1 font-semibold text-sm border-b-2 transition-all duration-300 ${
                 isActive 
                   ? "border-gold text-gold" 
                   : "border-transparent text-gray-400 hover:text-white"

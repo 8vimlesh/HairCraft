@@ -11,7 +11,7 @@ export default function App() {
     <div className="min-h-screen bg-charcoal-deep text-gray-100 flex flex-col font-sans">
       {/* Navigation Header */}
       <header className="border-b border-white/5 bg-charcoal/30 backdrop-blur-md sticky top-0 z-40">
-        <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+        <div className="max-w-5xl mx-auto px-4 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-0">
           <div 
             onClick={() => setView("customer")}
             className="flex items-center gap-2.5 cursor-pointer group"

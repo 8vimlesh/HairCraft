@@ -225,7 +225,7 @@ export default function BookingFlow() {
   };
 
   return (
-    <div className="max-w-md mx-auto w-full px-4 py-8">
+    <div className="max-w-md mx-auto w-full px-4 py-4 sm:py-8">
       {/* Step Indicators */}
       {step < 5 && (
         <div className="flex items-center justify-between mb-8 px-2">
@@ -431,7 +431,7 @@ export default function BookingFlow() {
                   No slots available on this date.
                 </div>
               ) : (
-                <div className="grid grid-cols-4 gap-2 max-h-[220px] overflow-y-auto pr-1">
+                <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 max-h-[220px] overflow-y-auto pr-1">
                   {slots.map((slot) => {
                     const isSelected = selectedSlot?.time === slot.time;
                     return (
@@ -645,7 +645,7 @@ export default function BookingFlow() {
                 <div className="absolute w-4 h-4 rounded-full bg-charcoal-deep -left-2 top-[35%] border-r border-white/5" />
                 <div className="absolute w-4 h-4 rounded-full bg-charcoal-deep -right-2 top-[35%] border-l border-white/5" />
 
-                <div className="grid grid-cols-2 gap-y-4 gap-x-2 border-b border-white/5 pb-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-2 border-b border-white/5 pb-4">
                   <div>
                     <span className="text-[10px] text-gray-500 uppercase font-semibold">Customer</span>
                     <p className="font-medium text-white mt-0.5">{confirmedBooking.customer_name}</p>
