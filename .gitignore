@@ -7,12 +7,14 @@ backend/*.pyc
 backend/*.pyo
 backend/*.pyd
 backend/.env
+backend/firebase-service-account.json
 
 # Frontend artifacts
 frontend/node_modules/
 frontend/dist/
 frontend/.cache/
 frontend/*.log
+frontend/.env
 
 # Editor files
 .vscode/
