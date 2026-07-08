@@ -55,6 +55,7 @@ const request = async (path, options = {}) => {
 export const api = {
   // Customer routes
   getServices: (category) => request(`/services?category=${category || ""}`),
+  getClosedDates: () => request("/availability/closed-dates"),
   getAvailability: (date, serviceId) => request(`/availability?date=${date}&service_id=${serviceId}`),
   createBooking: (bookingData) => {
     const { id_token, ...rest } = bookingData;

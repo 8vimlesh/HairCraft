@@ -20,6 +20,14 @@ def minutes_to_time(mins: int) -> str:
     m = mins % 60
     return f"{h:02d}:{m:02d}"
 
+@router.get("/closed-dates")
+async def get_closed_dates(db = Depends(get_db)):
+    """Get list of salon closed dates for public UI rendering."""
+    config = await db.slots_config.find_one({})
+    if not config:
+        return []
+    return config.get("closed_dates", [])
+
 @router.get("")
 async def get_availability(
     date: str = Query(..., description="Target date in YYYY-MM-DD format"),

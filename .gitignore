@@ -1,5 +1,6 @@
 # Backend artifacts
 backend/.venv/
+backend/venv/
 backend/.pytest_cache/
 backend/notifications.log
 backend/__pycache__/
