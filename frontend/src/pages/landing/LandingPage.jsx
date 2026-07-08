@@ -47,7 +47,10 @@ export default function LandingPage({ setView }) {
           onBookClick={() => setView("customer")} 
           onOwnerClick={() => setView("owner")}
         />
-        <HeroSection onBookClick={() => setView("customer")} />
+        <HeroSection 
+          onBookClick={() => setView("customer")} 
+          onOwnerClick={() => setView("owner")}
+        />
         <ServicesSection />
         <GallerySection />
         <TestimonialSection />

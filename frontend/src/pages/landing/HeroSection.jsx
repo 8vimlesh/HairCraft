@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-export default function HeroSection({ onBookClick }) {
+export default function HeroSection({ onBookClick, onOwnerClick }) {
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
@@ -56,12 +56,12 @@ export default function HeroSection({ onBookClick }) {
             >
               Book Appointment
             </button>
-            <a 
-              href="#services"
+            <button 
+              onClick={onOwnerClick}
               className="btn-outline w-full sm:w-auto text-center"
             >
-              Explore Services
-            </a>
+              Owner Portal
+            </button>
           </motion.div>
 
           <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-16 pt-6 md:pt-8 border-t border-white/10 w-full">

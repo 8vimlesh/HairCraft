@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
 
 export default function Navbar({ onBookClick, onOwnerClick }) {
   const [scrolled, setScrolled] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -73,7 +75,57 @@ export default function Navbar({ onBookClick, onOwnerClick }) {
             </button>
           </div>
         </div>
+
+        {/* Mobile Menu Toggle */}
+        <button 
+          className="lg:hidden p-2 text-gray-300 hover:text-gold transition-colors"
+          onClick={() => setIsMobileOpen(!isMobileOpen)}
+        >
+          {isMobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="lg:hidden absolute top-full left-0 right-0 bg-charcoal-deep/95 backdrop-blur-xl border-b border-white/10 overflow-hidden shadow-2xl"
+          >
+            <div className="px-6 py-8 flex flex-col gap-6">
+              <div className="flex flex-col gap-4 border-b border-white/10 pb-6">
+                {navLinks.map((link) => (
+                  <a 
+                    key={link.name} 
+                    href={link.href}
+                    onClick={() => setIsMobileOpen(false)}
+                    className="text-lg font-sans tracking-widest uppercase text-gray-300 hover:text-gold transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                ))}
+              </div>
+              <div className="flex flex-col gap-4 pt-2">
+                <button 
+                  onClick={() => { setIsMobileOpen(false); onOwnerClick(); }}
+                  className="text-sm font-sans tracking-widest uppercase text-gray-400 hover:text-gold transition-colors font-semibold text-left"
+                >
+                  Owner Portal
+                </button>
+                <button 
+                  onClick={() => { setIsMobileOpen(false); onBookClick(); }}
+                  className="btn-gold py-3 px-6 text-sm tracking-widest uppercase w-full text-center"
+                >
+                  Book Appointment
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 }
