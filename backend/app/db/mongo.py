@@ -270,8 +270,7 @@ async def get_db():
 async def connect_to_mongo():
     try:
         logger.info(f"Connecting to MongoDB at {settings.MONGODB_URI}...")
-        # Check connection quickly
-        client = AsyncIOMotorClient(settings.MONGODB_URI, serverSelectionTimeoutMS=2000)
+        client = AsyncIOMotorClient(settings.MONGODB_URI, serverSelectionTimeoutMS=10000)
         # Trigger a command to test the connection
         await client[settings.DB_NAME].command("ping")
         
