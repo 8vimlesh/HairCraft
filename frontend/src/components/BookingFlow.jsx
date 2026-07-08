@@ -23,7 +23,7 @@ export default function BookingFlow() {
   // Booking Form State
   const [formData, setFormData] = useState({
     name: "",
-    phone: "",
+    phone: "+91",
     notes: ""
   });
   
@@ -200,7 +200,7 @@ export default function BookingFlow() {
     setCategory("");
     setSelectedService(null);
     setSelectedSlot(null);
-    setFormData({ name: "", phone: "", notes: "" });
+    setFormData({ name: "", phone: "+91", notes: "" });
     setConfirmedBooking(null);
     setOtpSent(false);
     setBookingStartTime(null);
